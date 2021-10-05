@@ -1,8 +1,8 @@
-package is.hi.Services.Implementation;
+package is.hi.comradefinder.Services.Implementation;
 
-import is.hi.Persistence.Entities.Company;
-import is.hi.Persistence.Repositories.CompanyRepository;
-import is.hi.Services.CompanyService;
+import is.hi.comradefinder.Persistence.Entities.Company;
+import is.hi.comradefinder.Persistence.Repositories.CompanyRepository;
+import is.hi.comradefinder.Services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

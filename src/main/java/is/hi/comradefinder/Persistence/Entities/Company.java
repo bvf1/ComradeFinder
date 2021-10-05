@@ -1,4 +1,4 @@
-package is.hi.Persistence.Entities;
+package is.hi.comradefinder.Persistence.Entities;
 
 import javax.persistence.*;
 

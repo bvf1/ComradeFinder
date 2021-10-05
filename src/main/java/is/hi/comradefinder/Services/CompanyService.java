@@ -1,6 +1,6 @@
-package is.hi.Services;
+package is.hi.comradefinder.Services;
 
-import is.hi.Persistence.Entities.Company;
+import is.hi.comradefinder.Persistence.Entities.Company;
 
 import java.util.List;
 
