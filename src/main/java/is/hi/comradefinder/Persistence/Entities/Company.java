@@ -7,26 +7,19 @@ import javax.persistence.*;
 public class Company {
 
     @Id
-    private Long kennitala;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
     private String name;
     private String email;
 
     public Company() {
     }
 
-    public Company(Long kennitala, String name, String email) {
-        this.kennitala = kennitala;
+    public Company(String name, String email) {
         this.name = name;
         this.email =email;
     }
 
-    public Long getKennitala() {
-        return kennitala;
-    }
-
-    public void setKennitala(Long kennitala) {
-        this.kennitala = kennitala;
-    }
 
     public String getName() {
         return name;

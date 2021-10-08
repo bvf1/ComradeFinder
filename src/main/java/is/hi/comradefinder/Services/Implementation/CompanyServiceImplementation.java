@@ -11,11 +11,11 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class CompanyServerImplementation implements CompanyService {
+public class CompanyServiceImplementation implements CompanyService {
     CompanyRepository repository;
 
     @Autowired
-    public CompanyServerImplementation (CompanyRepository repository){
+    public CompanyServiceImplementation(CompanyRepository repository){
         this.repository = repository;
     }
 
@@ -43,12 +43,20 @@ public class CompanyServerImplementation implements CompanyService {
     }
 
     @Override
-    public Company findOne(Long kennitala) {
-        return repository.findOne(kennitala);
+    public List<Company> findByName(String name) {
+        return repository.findByName(name);
+    }
+
+    /*
+
+/*
+    @Override
+    public Company findOne(Long id) {
+        return repository.findOne(id);
     }
 
     @Override
     public List<Company> findByName(String name) {
         return repository.findByName(name);
-    }
+    }*/
 }

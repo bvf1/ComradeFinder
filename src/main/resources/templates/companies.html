@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+    <th:choose>
+        <th:when test="${not empty companies}">
+            <table class="notes">
+                <tr th:each="companies : ${companies}">
+                    <td><a th:href=@"/companies/${companies.name}">${company.name}</a></td>
+                    <td>${/company.email}</td>
+                </tr>
+            </table>
+        </th:when>
+        <th:otherwise>
+            <h3>No notes!</h3>
+        </th:otherwise>
+    </th:choose>
+</body>
+</html>
