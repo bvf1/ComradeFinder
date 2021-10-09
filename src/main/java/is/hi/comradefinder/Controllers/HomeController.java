@@ -20,27 +20,20 @@ public class HomeController {
 
     private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
 
-
     @RequestMapping("/")
-    public String goHome() {
+    public String HomeController() {
         return "home";
     }
 
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @RequestMapping(value= "/login", method = RequestMethod.POST)
+    @RequestMapping(value= "/home/{user}", method = RequestMethod.POST)
     public String logIn(@ModelAttribute Model model) {
        // model.addAttribute("kind", kind);
         model.addAttribute("user", userName);
         model.addAttribute("password", password);
         log.info(userName + " " + password);
-        return "login";
+        return "home";
     }
 
 
 
-  //  public void findUser() {}
 }
