@@ -2,17 +2,17 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>company</title>
+    <title>Register User</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<th:form method="POST" commandName="company" action="/register">
+<form action="#" th:action="@{/register}" th:object="${user}" method="post">
     <table><tr>
         <td>Name of Company:</td><td> <input path="name" type="text" placeholder="Enter name" /></td>
     </tr><tr>
         <td>Netfang:</td><td> <input path="email" type="email" placeholder="company@company.is"/></td>
     </tr></table>
     <input type="submit" value="Register Company!"/>
-</th:form>
+</form>
 </body>
 </html>
