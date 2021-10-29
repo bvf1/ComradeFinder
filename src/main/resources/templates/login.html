@@ -7,7 +7,7 @@
 <body>
 Log In
 <th:form method="POST" commandName="LogIn" action="/login"></br>
-    <p>User Name: <input type="text" name="userName" value="James Carrot" th:value="${user}"/></p>
+    <p>User Name: <input type="text" name="userName" value="James Carrot" th:field="*${user}"/></p>
     <p>Password: <input type="password" name="password" value="1234567890" th:value="${password}"/></p>
     <p><input type="submit" value="Log In"></p>
 </th:form>
