@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <head>
-    <title>Log In Form</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Login</title>
 </head>
 <body>
-Log In
-<th:form method="POST" commandName="LogIn" action="/login"></br>
-    <p>User Name: <input type="text" name="userName" value="James Carrot" th:value="${user}"/></p>
-    <p>Password: <input type="password" name="password" value="1234567890" th:value="${password}"/></p>
-    <p><input type="submit" value="Log In"></p>
-    <p><a href="/register">Register</a></p>
-</th:form>
+<h2>Login to your account</h2>
+<form action="#" th:action="@{/login}" th:object="${company}"  method="post">
+    <input type="text" name="username" id="username" th:field="*{username}"/>
+    <input type="text" name="password" id="password" th:value="*{password}"/>
+    <input type="submit" value="Log In"/>
+</form>
+<form action="#" th:action="@{/register}"  method="post">
+    <select name="accountType">
+        <option value="Company">Company</option>
+        <option value="User">User</option>
+    </select>
+    <input type="submit" value="Register"/>
+</form>
+
+
+<div>
+    <label>Register</label>
+    <select name="Acount Type">
+        <option th:value="Company"><a href="registercompany">Company</a></option>
+        <option th:value="User"><a href="registercompany">User</a></option>
+    </select>
+</div>
 </body>
 </html>

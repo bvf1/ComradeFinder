@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Company</title>
+</head>
+<body>
+<form action="#" th:action="@{/register}" th:object="${company}", method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+</form>
+
+</body>
+</html>

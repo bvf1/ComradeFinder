@@ -12,7 +12,8 @@ import java.util.List;
 
 @Service
 public class CompanyServiceImplementation implements CompanyService {
-    CompanyRepository repository;
+
+    private CompanyRepository repository;
 
     @Autowired
     public CompanyServiceImplementation(CompanyRepository repository){
@@ -45,6 +46,20 @@ public class CompanyServiceImplementation implements CompanyService {
     @Override
     public List<Company> findByName(String name) {
         return repository.findByName(name);
+    }
+
+    @Override
+    public Company findByUsername(String username) { return repository.findByUsername(username); }
+
+    @Override
+    public Company login(Company company) {
+        Company doesExist = findByUsername(company.getUsername());
+        if (doesExist != null) {
+            if (doesExist.getPassword().equals(company.getPassword())) {
+                return doesExist;
+            }
+        }
+        return null;
     }
 
     /*

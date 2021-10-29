@@ -2,7 +2,6 @@ package is.hi.comradefinder.Persistence.Repositories;
 
 import is.hi.comradefinder.Persistence.Entities.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,6 +12,8 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     List<Company> findAll();
     List<Company> findByName(String name);
+
+    Company findByUsername(String username);
 
 
    // List<Company> findAllByOrderByIdDesc();

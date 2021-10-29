@@ -11,7 +11,9 @@ public interface CompanyService {
     List<Company> findAll();
     List<Company> findAllReverseOrder();
     List<Company> findByName(String name);
+    Company findByUsername(String username);
 
+    Company login(Company company);
     /*
     List<Company> findAllReverseOrder();
     Company findOne(Long id);

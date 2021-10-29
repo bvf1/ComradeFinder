@@ -3,23 +3,34 @@ package is.hi.comradefinder.Persistence.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "companies")
 public class Company {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String username;
     private String email;
+    private String password;
 
     public Company() {
     }
 
-    public Company(String name, String email) {
+    public Company(String name, String username, String email, String password) {
         this.name = name;
-        this.email =email;
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -35,5 +46,19 @@ public class Company {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
