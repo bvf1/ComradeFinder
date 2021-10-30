@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,21 +22,35 @@ public class HomeController {
     public String userName;
     public String password;
 
+    private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
+
     @Autowired
     public HomeController(CompanyService companyService) {
         this.companyService = companyService;
     }
+
+    @RequestMapping(value = "/")
+    public String HomePage() {
+        return "home";
+    }
+
+    //Works
+  /* @RequestMapping(value = "/", method = RequestMethod.POST)
+   public String register(@RequestParam(value="accountType") String accountType, Company company) {
+       log.info(accountType);
+       return "home";   }
+    }*/
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String loginGET(Company company) {
         return "home";
     }
-    //{"/home.html", "/login.html"}
+
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String loginPOST(Company company, BindingResult result, Model model, HttpSession session) {
         if (result.hasErrors()) {
-            return "redirect:/home";
+            return "redirect:/";
         }
 
         Company exists = companyService .login(company);
@@ -48,26 +59,6 @@ public class HomeController {
             model.addAttribute("LoggedInUser", exists);
             return "viewCompany";
         }
-        return "redirect:/home";
+        return "redirect:/";
     }
-
-
-    @RequestMapping(value"/info")
-    /*
-    @RequestMapping(value= "/home/{user}", method = RequestMethod.POST)
-    public String logIn(@ModelAttribute Model model) {
-       // model.addAttribute("kind", kind);
-        model.addAttribute("user", userName);
-        model.addAttribute("password", password);
-        log.info(userName + " " + password);
-        return "home";
-    }
-
-    @RequestMapping(value = "RequestMethod.GET)
-
-
-
-*/
-
-
 }
