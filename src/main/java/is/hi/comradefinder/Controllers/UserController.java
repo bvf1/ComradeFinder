@@ -20,7 +20,7 @@ public class UserController {
 
     private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
 
-    /*
+
     @Autowired
     public UserController (UserService userService) {
         this.userService = userService;
@@ -30,7 +30,7 @@ public class UserController {
     public String registerGET(User user) {
         return "registeruser";
     }
-
+/*
     @RequestMapping(value = "/register/user", method = RequestMethod.POST)
     public String registerPOST(User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
