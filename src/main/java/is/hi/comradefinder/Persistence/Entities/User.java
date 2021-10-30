@@ -1,65 +1,37 @@
 package is.hi.comradefinder.Persistence.Entities;
 
-import javax.persistence.*;
-
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+public class User extends Account {
+    @OneToMany(fetch= FetchType.LAZY)
+    private List<Application> applications;
+    private String PDFcv;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String username;
-    private String email;
-    private String password;
+    // TODO: Do we want to allow empty construction?
+    //    it is supposed to be empty for spring boot
 
+    // Constructor chain
     public User() {
     }
 
-    public User(String name, String username, String email, String password) {
-        this.name = name;
+    public User(String username, String password, String phone, String email, String displayName, List<String> description, String PDFcv) {
         this.username = username;
-        this.email = email;
         this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.phone = phone;
         this.email = email;
+        this.displayName = displayName;
+        this.description = description;
+        this.PDFcv = PDFcv;
     }
 
-    public String getUsername() { return username; }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void addCV(String newPDFLink) {
+        this.PDFcv = newPDFLink;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    // TODO: Getters and setters
 }

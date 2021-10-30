@@ -10,7 +10,7 @@ public interface CompanyService {
 
     List<Company> findAll();
     List<Company> findAllReverseOrder();
-    List<Company> findByName(String name);
+   // List<Company> findByName(String name);
     Company findByUsername(String username);
 
     Company login(Company company);

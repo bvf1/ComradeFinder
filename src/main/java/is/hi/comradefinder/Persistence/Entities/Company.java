@@ -1,64 +1,70 @@
 package is.hi.comradefinder.Persistence.Entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "companies")
-public class Company {
+public class Company extends Account {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String username;
-    private String email;
-    private String password;
+    private int SSN; // assigned -1 if missing
+    private String street;
+    private String companyPhone;
+    @OneToMany(fetch= FetchType.LAZY)
+    private List<Ad> advertisements;
 
+    // TODO: Do we want to allow empty construction?
+    //    It is supposed to be empty for spring boot
+    // Constructor chain
     public Company() {
     }
 
-    public Company(String name, String username, String email, String password) {
-        this.name = name;
+
+    public Company(String username, String password, String phone,
+                   String email, String displayName, List<String> description,
+                   int SSN, String street, String companyPhone) {
         this.username = username;
-        this.email = email;
         this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.phone = phone;
         this.email = email;
+        this.displayName = displayName;
+        this.description = description;
+        this.SSN = SSN;
+        this.street = street;
+        this.companyPhone = companyPhone;
     }
 
-    public String getUsername() { return username; }
+    // TODO: Getters and setters
 
-    public void setUsername(String username) {
-        this.username = username;
+    public int getSSN() {
+        return SSN;
     }
 
-    public String getPassword() {
-        return password;
+    public void setSSN(int SSN) {
+        this.SSN = SSN;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCompanyPhone() {
+        return companyPhone;
+    }
+
+    public void setCompanyPhone(String companyPhone) {
+        this.companyPhone = companyPhone;
+    }
+
+    public List<Ad> getAdvertisements() {
+        return advertisements;
+    }
+
+    public void setAdvertisements(List<Ad> advertisements) {
+        this.advertisements = advertisements;
     }
 }

@@ -43,10 +43,10 @@ public class CompanyServiceImplementation implements CompanyService {
         return company;
     }
 
-    @Override
+   /* @Override
     public List<Company> findByName(String name) {
         return repository.findByName(name);
-    }
+    }*/
 
     @Override
     public Company findByUsername(String username) { return repository.findByUsername(username); }

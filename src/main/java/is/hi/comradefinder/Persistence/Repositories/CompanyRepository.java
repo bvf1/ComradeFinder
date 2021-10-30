@@ -11,7 +11,7 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     void delete(Company company);
 
     List<Company> findAll();
-    List<Company> findByName(String name);
+    //List<Company> findByName(String name);
 
     Company findByUsername(String username);
 
