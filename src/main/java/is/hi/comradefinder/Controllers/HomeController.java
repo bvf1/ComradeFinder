@@ -24,9 +24,6 @@ public class HomeController {
     CompanyService companyService;
     UserService userService;
 
-    public String kind;
-    public String userName;
-    public String password;
 
     private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
 
@@ -40,13 +37,6 @@ public class HomeController {
     public String HomePage() {
         return "home";
     }
-
-    //Works
-  /* @RequestMapping(value = "/", method = RequestMethod.POST)
-   public String register(@RequestParam(value="accountType") String accountType, Company company) {
-       log.info(accountType);
-       return "home";   }
-    }*/
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

@@ -11,13 +11,9 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     void delete(Company company);
 
     List<Company> findAll();
-    //List<Company> findByName(String name);
-
     Company findByUsername(String username);
 
-
-   // List<Company> findAllByOrderByIdDesc();
-    //Company findOne(Long id);
+    Company findByID(Long id);
 
     /* Getum gert eigin queries
     @Query(value = "SELECT p FROM Company p where length(p.name) >= 3")

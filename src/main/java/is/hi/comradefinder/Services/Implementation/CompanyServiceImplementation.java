@@ -35,18 +35,6 @@ public class CompanyServiceImplementation implements CompanyService {
         return repository.findAll();
     }
 
-    @Override
-    public List<Company> findAllReverseOrder() {
-        List<Company> company = repository.findAll();
-
-        Collections.reverse(company);
-        return company;
-    }
-
-   /* @Override
-    public List<Company> findByName(String name) {
-        return repository.findByName(name);
-    }*/
 
     @Override
     public Company findByUsername(String username) { return repository.findByUsername(username); }
@@ -62,16 +50,9 @@ public class CompanyServiceImplementation implements CompanyService {
         return null;
     }
 
-    /*
 
-/*
     @Override
-    public Company findOne(Long id) {
-        return repository.findOne(id);
+    public Company findByID(Long id) {
+        return repository.findByID(id);
     }
-
-    @Override
-    public List<Company> findByName(String name) {
-        return repository.findByName(name);
-    }*/
 }

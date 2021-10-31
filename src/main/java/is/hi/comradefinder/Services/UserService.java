@@ -10,11 +10,8 @@ public interface UserService {
     User save(User User);
     void delete(User User);
 
-    List<User> findAll();
-    //List<User> findByName(String name);
-
     User findByUsername(String username);
-    List<User> findAllReverseOrder();
-
     User login(User user);
+    User findByID(Long id);
+
 }

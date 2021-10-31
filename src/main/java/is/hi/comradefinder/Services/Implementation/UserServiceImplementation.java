@@ -19,6 +19,8 @@ public class UserServiceImplementation implements UserService{
         this.repository = repository;
     }
 
+
+
     @Override
     public User save(User user) {
         return repository.save(user);
@@ -29,26 +31,11 @@ public class UserServiceImplementation implements UserService{
         repository.delete(user);
     }
 
+
     @Override
-    public List<User> findAll() {
-        return repository.findAll();
+    public User findByUsername(String username) {
+        return repository.findByUsername(username);
     }
-
-    @Override
-    public List<User> findAllReverseOrder() {
-        List<User> user = repository.findAll();
-
-        Collections.reverse(user);
-        return user;
-    }
-
-   /* @Override
-    public List<User> findByName(String name) {
-        return repository.findByName(name);
-    }*/
-
-    @Override
-    public User findByUsername(String username) { return repository.findByUsername(username); }
 
     @Override
     public User login(User user) {
@@ -59,5 +46,10 @@ public class UserServiceImplementation implements UserService{
             }
         }
         return null;
+    }
+
+    @Override
+    public User findByID(Long id) {
+        return this.repository.findByID(id);
     }
 }

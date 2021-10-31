@@ -15,7 +15,8 @@ public class AdController {
 
 
     @RequestMapping(value="/makeAd", method = RequestMethod.GET)
-    public String makeAdGET(Model model) {
+    public String makeAdGET(Model model, HttpSession session) {
+
 
         return "makeAd";
     }
