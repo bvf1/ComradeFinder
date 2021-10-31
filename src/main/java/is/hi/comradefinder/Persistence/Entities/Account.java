@@ -1,15 +1,13 @@
 package is.hi.comradefinder.Persistence.Entities;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public abstract class Account {
     @Id
-    protected long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long ID;
     protected String username;
     protected String password;
     protected String phone;
@@ -25,12 +23,12 @@ public abstract class Account {
     // Methods that are common for User and Company should go here:
     // TODO: Getter and setter methods
 
-    public long getId() {
-        return id;
+    public long getID() {
+        return ID;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public String getUsername() {

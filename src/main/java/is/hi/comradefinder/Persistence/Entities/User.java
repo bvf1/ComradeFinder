@@ -1,21 +1,20 @@
 package is.hi.comradefinder.Persistence.Entities;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class User extends Account {
+    private String PDFcv;
     @OneToMany(fetch= FetchType.LAZY)
     private List<Application> applications;
-    private String PDFcv;
 
     // TODO: Do we want to allow empty construction?
     //    it is supposed to be empty for spring boot
 
     // Constructor chain
+
     public User() {
     }
 
@@ -34,4 +33,20 @@ public class User extends Account {
     }
 
     // TODO: Getters and setters
+
+    public String getPDFcv() {
+        return PDFcv;
+    }
+
+    public void setPDFcv(String PDFcv) {
+        this.PDFcv = PDFcv;
+    }
+
+    public List<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<Application> applications) {
+        this.applications = applications;
+    }
 }

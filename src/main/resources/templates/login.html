@@ -5,13 +5,15 @@
 </head>
 <body>
 <h2>Login to your account</h2>
-<form action="#" th:action="@{/}" th:object="${company}"  method="post">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" th:field="*{username}"/>
-    <label for="password">Password: </label>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
+<form action="#" th:action="@{/}" th:object="${user}"  method="post">
+    <div th:object="${user}" >
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" th:field="*{username}"/>
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password" th:value="*{password}"/>
 
-    <input type="submit" value="Log In"/>
+        <input type="submit" value="Log In"/>
+    </div>
 </form>
 
 

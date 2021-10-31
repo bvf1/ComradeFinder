@@ -19,7 +19,6 @@ public class Company extends Account {
     public Company() {
     }
 
-
     public Company(String username, String password, String phone,
                    String email, String displayName, List<String> description,
                    int SSN, String street, String companyPhone) {

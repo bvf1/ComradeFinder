@@ -6,11 +6,14 @@
 </head>
 <body>
 <form action="#" th:action="@{/register/user}" th:object="${user}", method="post">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" th:field="*{username}"/>
-    <label for="password">Password: </label>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
-    <input type="submit" value="Register"/>
+    <div th:insert="registerAccount"></div>
+    <div>
+        <label for="PDFcv">PDF with CV: </label>
+        <input type="text" name="PDFcv" id="PDFcv" th:value="*{PDFcv}"/>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
 </form>
 </body>
 </html>

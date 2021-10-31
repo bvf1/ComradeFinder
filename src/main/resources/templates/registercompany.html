@@ -6,11 +6,22 @@
 </head>
 <body>
 <form action="#" th:action="@{/register/company}" th:object="${company}", method="post">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" th:field="*{username}"/>
-    <label for="password">Password: </label>
-    <input type="text" name="password" id="password" th:value="*{password}"/>
-    <input type="submit" value="Register"/>
+    <div th:insert="registerAccount"></div>
+    <div>
+        <label for="SSN">SSN: </label>
+        <input type="text" name="SSN" id="SSN" th:value="*{SSN}"/>
+    </div>
+    <div>
+        <label for="street">Street: </label>
+        <input type="text" name="street" id="street" th:value="*{street}"/>
+    </div>
+    <div>
+        <label for="companyPhone">Company Phone Number: </label>
+        <input type="text" name="companyPhone" id="companyPhone" th:value="*{companyPhone}"/>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
 </form>
 </body>
 </html>

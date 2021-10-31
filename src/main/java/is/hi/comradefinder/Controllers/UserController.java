@@ -30,16 +30,18 @@ public class UserController {
     public String registerGET(User user) {
         return "registeruser";
     }
-/*
+
+
     @RequestMapping(value = "/register/user", method = RequestMethod.POST)
     public String registerPOST(User user, BindingResult result, Model model) {
+        log.info("register user");
         if (result.hasErrors()) {
             return "registeruser";
         }
         if (userService.findByUsername(user.getUsername()) != null) {
             return "registeruser";
         }
-        companyService.save(company);
+        userService.save(user);
         return "redirect:/";
-    }*/
+    }
 }

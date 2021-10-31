@@ -14,4 +14,7 @@ public interface UserService {
     //List<User> findByName(String name);
 
     User findByUsername(String username);
+    List<User> findAllReverseOrder();
+
+    User login(User user);
 }

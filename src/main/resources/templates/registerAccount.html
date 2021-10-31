@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" th:field="*{username}"/>
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password" th:value="*{password}"/>
+    </div>
+    <div>
+        <label for="phone">Phone: </label>
+        <input type="text" name="phone" id="phone" th:value="*{phone}"/>
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" name="Email" id="Email" th:value="*{Email}"/>
+    </div>
+    <div>
+        <label for="displayName">DisplayName: </label>
+        <input type="text" name="displayName" id="displayName" th:value="*{displayName}"/>
+    </div>
+    <div>
+        <label for="description">Description: </label>
+        <input type="text" name="" id="description" th:value="*{description}"/>
+    </div>
+</body>
+</html>
