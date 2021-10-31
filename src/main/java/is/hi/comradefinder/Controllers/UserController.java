@@ -44,4 +44,16 @@ public class UserController {
         userService.save(user);
         return "redirect:/";
     }
+
+// should be in application controller
+    @RequestMapping(value="/makeApplication", method = RequestMethod.GET)
+    public String makeApplication() {
+
+        return "makeApplication";
+    }
+    @RequestMapping(value="/makeApplication", method = RequestMethod.POST)
+    public String makeApplicationPOST() {
+
+        return "makeApplication";
+    }
 }

@@ -42,12 +42,12 @@ public class CompanyController {
         return "redirect:/";
     }
 
+
    /* @RequestMapping(value = "company", method = RequestMethod.GET)
     public String ViewCompanyGET(Company company, Model model) {
         return "viewCompany";
     }
 
-    //ViewCompany
     //ViewCompanyFromName
     //ViewCompanies
 */
