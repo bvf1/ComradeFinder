@@ -66,4 +66,8 @@ public class Company extends Account {
     public void setAdvertisements(List<Ad> advertisements) {
         this.advertisements = advertisements;
     }
+
+    public String getType() {
+        return "company";
+    }
 }

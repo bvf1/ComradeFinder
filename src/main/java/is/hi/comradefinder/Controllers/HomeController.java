@@ -47,7 +47,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)//, params = "", path = "" )
     public String loginPOST(Company company, User user, BindingResult result, Model model, HttpSession session) {
-        log.info("fjow");
+
         if (result.hasErrors()) {
             return "redirect:/";
         }
@@ -72,6 +72,8 @@ public class HomeController {
 
             session.setAttribute("LoggedInUser", companyExists);
             model.addAttribute("LoggedInUser", companyExists);
+            model.addAttribute("type", companyExists.getType());
+
             return "viewCompany";
         }
         return "redirect:/";

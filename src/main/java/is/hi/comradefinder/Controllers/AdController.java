@@ -1,8 +1,11 @@
 package is.hi.comradefinder.Controllers;
 
+import is.hi.comradefinder.ComradeFinderApplication;
 import is.hi.comradefinder.Persistence.Entities.Company;
 import is.hi.comradefinder.Services.AdService;
 import is.hi.comradefinder.Services.CompanyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +17,11 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class AdController {
+public class  AdController {
 
     AdService adService;
+    private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
+
 
     @Autowired
     public AdController (AdService adService) {
@@ -25,10 +30,25 @@ public class AdController {
 
     @RequestMapping(value="/makeAd", method = RequestMethod.GET)
     public String makeAdGET(Model model, HttpSession session) {
+        Company company = (Company) session.getAttribute("LoggedInUser");
+
+        log.info("jfowfew");
+        log.info(String.valueOf(company));
+
+        if (company != null) {
+            log.info("no is not null");
+            log.info(company.toString());
+
+            return "makeAd";
 
 
-        return "makeAd";
+        }
+        log.info("company is null");
+        return "viewCompany";
+        // return "makeAd";
+
     }
+
 
     @RequestMapping(value="/makeAd", method = RequestMethod.POST)
     public String makeAd(Model model) {
