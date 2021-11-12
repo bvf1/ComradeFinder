@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CompanyController {
@@ -40,6 +43,21 @@ public class CompanyController {
         }
         companyService.save(company);
         return "redirect:/";
+    }
+
+    @RequestMapping(value="/company", method=RequestMethod.GET)
+    public String viewCompanyGET(Company company, Model model, HttpSession session) {
+        company = (Company) session.getAttribute("LoggedInUser");
+
+        log.info("whatthe actual f");
+        // Company company = companyService.findByID(id);
+        if (company != null) {
+            log.info("no is not null");
+            log.info(company.toString());
+
+            return "viewCompany";
+        }
+        return "";
     }
 
 

@@ -74,9 +74,10 @@ public class HomeController {
             model.addAttribute("LoggedInUser", companyExists);
             model.addAttribute("type", companyExists.getType());
 
-            return "viewCompany";
+            return "redirect:/company";
         }
         return "redirect:/";
     }
+
 
 }
