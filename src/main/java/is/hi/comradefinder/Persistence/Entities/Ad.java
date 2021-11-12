@@ -23,9 +23,7 @@ public class Ad {
     private List<String> tags;
 
     // Constructor chain
-    public Ad() {
-        this(null, null, null, null, null);
-    }
+    public Ad() {}
     public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage) {
         // TODO: Implement a way for ads to fetch a unique ID.
         //this.id = fetchNewAdID();
@@ -35,6 +33,8 @@ public class Ad {
         this.company = company;
         this.linkToPDFImage = linkToPDFImage;
     }
+
+
 
     public void addTag(String tag) {
         this.tags.add(tag);
@@ -59,4 +59,63 @@ public class Ad {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<String> getDescription() {
+        return description;
+    }
+
+    public void setDescription(List<String> description) {
+        this.description = description;
+    }
+
+    public List<String> getExtraQuestions() {
+        return extraQuestions;
+    }
+
+    public void setExtraQuestions(List<String> extraQuestions) {
+        this.extraQuestions = extraQuestions;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public String getLinkToPDFImage() {
+        return linkToPDFImage;
+    }
+
+    public void setLinkToPDFImage(String linkToPDFImage) {
+        this.linkToPDFImage = linkToPDFImage;
+    }
+
+    public List<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<Application> applications) {
+        this.applications = applications;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 }

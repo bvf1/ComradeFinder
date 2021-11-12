@@ -5,7 +5,7 @@
     <title>Company</title>
 </head>
 <body>
-<div>
+<div action="#" th:action="@{/viewCompany}" th:object="${user}", method="get">
     <p th:text="${LoggedInUser.username}"></p>
     <p>Is logged In account type is:</p>
     <p th:text="${type}"></p>
