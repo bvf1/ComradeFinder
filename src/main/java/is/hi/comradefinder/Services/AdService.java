@@ -14,5 +14,5 @@ public interface AdService {
 
     List<Ad> findByTitle(String title);
     List<Ad> findByTagsContaining(String tag);
-    List<Ad> findByCompany(String username);
+    List<Ad> findAdsByCompany(String username);
 }

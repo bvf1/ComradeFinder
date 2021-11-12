@@ -7,8 +7,29 @@
 <body>
 <div>
     Make Ad
-    <!--form action="#" th:action="@{/makeAd" method="post">
-    </form-->
+    <form action="#" th:action="@{/makeAd}" th:object="${ad}" method="post">
+        <!--TODO: fix error: Property or field 'title' cannot be found on null-->
+        <div>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" th:value="*{title}"/>
+        </div>
+        <div>
+            <label for="description">description: </label>
+            <input type="text" name="description" id="description" th:value="*{description}" style="height:300%;"/>
+        </div>
+        <div>
+            <!--TODO: Make this button add text inputs for additional questions-->
+            <button value="Add Extra Question"></button>
+        </div>
+        <div>
+            <!--TODO: Make this work (I don't care how)-->
+            <button value="Add Tag"></button>
+        </div>
+        <div>
+            <input type="submit" value="Register"/>
+            <input type="button" value="Cancel" onClick="window.location.href='../';">
+        </div>
+    </form>
 </div>
 
 </body>

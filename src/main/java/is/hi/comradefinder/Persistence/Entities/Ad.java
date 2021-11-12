@@ -22,7 +22,6 @@ public class Ad {
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> tags;
 
-    // TODO: Do we want to allow empty construction?
     // Constructor chain
     public Ad() {
         this(null, null, null, null, null);

@@ -17,7 +17,8 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
 
     List<Ad> findByTitle(String Title);
     List<Ad> findByTagsContaining(String Tag);
-    @Query(value = "SELECT p FROM Ad p WHERE Ad.company.username = ?1")
-    List<Ad> findByCompany(String username);
+
+    @Query(value = "SELECT ad FROM Ad ad WHERE ad.company.username = ?1")
+    List<Ad> findAdsByCompany(String username);
 
 }

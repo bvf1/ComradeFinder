@@ -47,6 +47,6 @@ public class AdServiceImplementation implements AdService {
     public List<Ad> findByTagsContaining(String tag) { return repository.findByTagsContaining(tag); }
 
     @Override
-    public List<Ad> findByCompany(String username) { return repository.findByCompany(username); }
+    public List<Ad> findAdsByCompany(String username) { return repository.findAdsByCompany(username); }
 
 }
