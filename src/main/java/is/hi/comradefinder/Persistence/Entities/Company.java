@@ -13,9 +13,7 @@ public class Company extends Account {
     @OneToMany(fetch= FetchType.LAZY)
     private List<Ad> advertisements;
 
-    // TODO: Do we want to allow empty construction?
-    //    It is supposed to be empty for spring boot
-    // Constructor chain
+
     public Company() {
     }
 

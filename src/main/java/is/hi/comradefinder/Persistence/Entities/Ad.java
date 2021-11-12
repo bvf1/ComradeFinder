@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "ads")
 public class Ad {
     @Id
     private long id;
@@ -22,9 +23,8 @@ public class Ad {
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> tags;
 
-    // Constructor chain
+    
     public Ad() {
-        this(null, null, null, null, null);
     }
     public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage) {
         // TODO: Implement a way for ads to fetch a unique ID.
