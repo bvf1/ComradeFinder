@@ -1,11 +1,13 @@
 package is.hi.comradefinder.Persistence.Entities;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
 public class Ad {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     @ElementCollection(fetch = FetchType.LAZY)
@@ -24,14 +26,14 @@ public class Ad {
 
     // Constructor chain
     public Ad() {}
-    public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage) {
-        // TODO: Implement a way for ads to fetch a unique ID.
-        //this.id = fetchNewAdID();
+    public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage, String tags) {
         this.title = title;
         this.description = description;
         this.extraQuestions = extraQuestions;
         this.company = company;
         this.linkToPDFImage = linkToPDFImage;
+        // tags are seperated by commas
+        this.tags = Arrays.asList(tags.split(",[ ]*"));
     }
 
 

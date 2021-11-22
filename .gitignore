@@ -399,7 +399,7 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,java,java-web,intellij,intellij+all,intellij+iml,eclipse,maven
 
-/target/
+target/*
 !.mvn/wrapper/maven-wrapper.jar
 
 ### Git ###
@@ -416,3 +416,5 @@ $RECYCLE.BIN/
 *_BASE_*.txt
 *_LOCAL_*.txt
 *_REMOTE_*.txt
+/database/
+/target/
