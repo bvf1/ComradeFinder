@@ -47,7 +47,7 @@ public class CompanyController {
 
     @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
-        companyId = Long.valueOf(1);
+       // companyId = Long.valueOf(1);
         //company = (Company) session.getAttribute("LoggedInUser");
         log.info(String.valueOf(companyService.findByID(companyId)));
         log.info(String.valueOf(companyId));
