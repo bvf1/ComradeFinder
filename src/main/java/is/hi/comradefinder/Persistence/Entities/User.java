@@ -10,11 +10,6 @@ public class User extends Account {
     @OneToMany(fetch= FetchType.LAZY)
     private List<Application> applications;
 
-    // TODO: Do we want to allow empty construction?
-    //    it is supposed to be empty for spring boot
-
-    // Constructor chain
-
     public User() {
     }
 
@@ -48,5 +43,9 @@ public class User extends Account {
 
     public void setApplications(List<Application> applications) {
         this.applications = applications;
+    }
+
+    public String getType() {
+        return "user";
     }
 }

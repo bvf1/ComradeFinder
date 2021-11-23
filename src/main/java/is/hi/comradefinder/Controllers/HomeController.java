@@ -65,6 +65,7 @@ public class HomeController {
             log.info(userExists.getUsername());
             session.setAttribute("LoggedInUser", userExists);
             model.addAttribute("LoggedInUser", userExists);
+            model.addAttribute("type", userExists.getType());
             return "viewUser";
         }
         else if (companyExists != null) {
@@ -74,7 +75,8 @@ public class HomeController {
             model.addAttribute("LoggedInUser", companyExists);
             model.addAttribute("type", companyExists.getType());
 
-            return "viewCompany";
+            return "redirect:company";
+            //return "viewCompany";
         }
         return "redirect:/";
     }

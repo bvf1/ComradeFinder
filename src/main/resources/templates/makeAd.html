@@ -17,16 +17,11 @@
             <input type="text" name="description" id="description" th:value="*{description}" style="height:300%;"/>
         </div>
         <div>
-            <!--TODO: Allow additional question (maybe a button that creates input boxes, or just have this similar to tags)-->
-            <button value="Add Extra Question"></button>
-        </div>
-        <div>
-            <!--TODO: Check if this works (connected to: Ad.java)-->
             <label for="tags">tags (comma seperated): </label>
             <input type="text" name="tags" id="tags" th:value="*{tags}"/>
         </div>
         <div>
-            <input type="submit" value="Register"/>
+            <input type="submit" value="Create Ad"/>
             <input type="button" value="Cancel" onClick="window.location.href='../';">
         </div>
     </form>

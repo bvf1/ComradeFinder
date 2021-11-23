@@ -7,18 +7,25 @@ import java.util.List;
 @Entity
 public class Ad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
+
     private String title;
-    @ElementCollection(fetch = FetchType.LAZY)
-    private List<String> description;
-    @ElementCollection(fetch= FetchType.LAZY)
-    private List<String> extraQuestions;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    //@ElementCollection(fetch = FetchType.LAZY)
+    private String description;
     //@OneToOne(mappedBy="ad", cascade= CascadeType.ALL, fetch= FetchType.LAZY, orphanRemoval = true)
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name="company_id")
     private Company company;
-    private String linkToPDFImage;
     @OneToMany(fetch=FetchType.LAZY)
     private List<Application> applications;
     @ElementCollection(fetch = FetchType.LAZY)
@@ -26,12 +33,13 @@ public class Ad {
 
     // Constructor chain
     public Ad() {}
-    public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage, String tags) {
+    public Ad(String title, String description, Company company, String tags) {
         this.title = title;
         this.description = description;
-        this.extraQuestions = extraQuestions;
+        // Features taken out for now. Maybe add them later.
+        //this.extraQuestions = extraQuestions;
         this.company = company;
-        this.linkToPDFImage = linkToPDFImage;
+        //this.linkToPDFImage = linkToPDFImage;
         // tags are seperated by commas
         this.tags = Arrays.asList(tags.split(",[ ]*"));
     }
@@ -53,17 +61,6 @@ public class Ad {
     }
 
     //TODO: Getters and setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -73,14 +70,14 @@ public class Ad {
         this.title = title;
     }
 
-    public List<String> getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(List<String> description) {
+    public void setDescription(String description) {
         this.description = description;
     }
-
+/*
     public List<String> getExtraQuestions() {
         return extraQuestions;
     }
@@ -88,7 +85,7 @@ public class Ad {
     public void setExtraQuestions(List<String> extraQuestions) {
         this.extraQuestions = extraQuestions;
     }
-
+*/
     public Company getCompany() {
         return company;
     }
@@ -96,7 +93,7 @@ public class Ad {
     public void setCompany(Company company) {
         this.company = company;
     }
-
+/*
     public String getLinkToPDFImage() {
         return linkToPDFImage;
     }
@@ -104,7 +101,7 @@ public class Ad {
     public void setLinkToPDFImage(String linkToPDFImage) {
         this.linkToPDFImage = linkToPDFImage;
     }
-
+*/
     public List<Application> getApplications() {
         return applications;
     }
