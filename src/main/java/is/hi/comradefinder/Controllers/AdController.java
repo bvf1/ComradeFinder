@@ -58,9 +58,9 @@ public class  AdController {
         }
         
 
-        if (adService.findById(ad.getId()) != null) {
+        /*if (adService.findById(ad.getId()) != null) {
             return "viewCompany";
-        }
+        }*/
         adService.save(ad);
         return "redirect:/";
     }

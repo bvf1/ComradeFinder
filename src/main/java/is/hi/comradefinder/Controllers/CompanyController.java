@@ -45,19 +45,28 @@ public class CompanyController {
         return "redirect:/";
     }
 
-    @RequestMapping(value="/company", method=RequestMethod.GET)
-    public String viewCompanyGET(Company company, Model model, HttpSession session) {
+    @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
+    public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
         company = (Company) session.getAttribute("LoggedInUser");
-
+        log.info(" actual f");
+        model.addAttribute("companyId", companyId);
+        model.addAttribute("company", companyService.findByID(companyId));
+      //  log.info(String.valueOf(companyService.findByID(Long.valueOf(companyId))));
+      //  model.addAttribute("company", companyService.findByID(companyId));
+      //  model.addAttribute("companyId", companyId);
+       // model.addAttribute("company", companyService.findByID(Long.valueOf(companyId)));
         log.info("whatthe actual f");
+        return "viewCompany";
+
         // Company company = companyService.findByID(id);
-        if (company != null) {
+      /*  if (company != null) {
             log.info("no is not null");
             log.info(company.toString());
 
             return "viewCompany";
         }
         return "";
+        */
     }
 
 

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org">
 <head>
-    <title>Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Company</title>
 </head>
 <body>
+
 Home Page
 <br>
 <div th:insert="login"></div>
@@ -15,18 +16,9 @@ Home Page
     <a th:href="@{/register/user}">Register User</a>
 </div>
 
-<!--form action="#" th:action="@{/}"  method="post">
-    <select th:name="accountType">
-        <option value="company">Company</option>
-        <option value="user">User</option>
-        <a th:href="@{/register/(value)}">Register</a>
+LOL
 
-    </select>
-    <a th:href="@{/register/(accountType=value)}">Register</a>
+<a th:href="@{/company/{companyId}(companyId = ${company.ID})}">lol User</a>
 
-    <a th:href="@{/register/(accountType=${value})}">Register</a>
-
-    <p><a href="/register">Register</a></p>
-</form-->
 </body>
 </html>

@@ -73,8 +73,11 @@ public class HomeController {
             session.setAttribute("LoggedInUser", companyExists);
             model.addAttribute("LoggedInUser", companyExists);
             model.addAttribute("type", companyExists.getType());
+            model.addAttribute(("lol"), companyExists.getID());
+            log.info("redirect:/company/{" + companyExists.getID() +"}");
+         //   return "redirect:/company/{" + companyExists.getID() +"}";
+             return "redirect:/company/{lol}";
 
-            return "redirect:/company";
         }
         return "redirect:/";
     }
