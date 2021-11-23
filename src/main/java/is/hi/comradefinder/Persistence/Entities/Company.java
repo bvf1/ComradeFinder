@@ -70,4 +70,6 @@ public class Company extends Account {
     public String getType() {
         return "company";
     }
+
+    
 }
