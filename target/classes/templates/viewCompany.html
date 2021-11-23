@@ -6,7 +6,8 @@
 </head>
 <body>
 LOL
-<div action="#" th:action="@{/company/{companyId}(companyId = ${companyId})}" th:object="${company}" method="get">
+<div action="#" th:action="@{/company/{companyId}(companyId = ${company.ID})}" th:object="${company}" method="get">
+
     <!--p th:text="${LoggedInUser.username}"></p-->
     <p th:text="${company.username}"></p>
 
