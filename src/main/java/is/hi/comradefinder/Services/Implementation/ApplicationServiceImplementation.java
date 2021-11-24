@@ -4,10 +4,12 @@ import is.hi.comradefinder.Persistence.Entities.Application;
 import is.hi.comradefinder.Persistence.Repositories.ApplicationRepository;
 import is.hi.comradefinder.Services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ApplicationServiceImplementation implements ApplicationService {
 
     private ApplicationRepository applicationRepository;
