@@ -5,8 +5,10 @@
     <title>User</title>
 </head>
 <body>
-<div>
-    <p th:text="${LoggedInUser.username}">fw</p>
+<div action="#" th:action="@{/user/{userId}(userId = ${user.ID})}" th:object="${user}" method="get">
+    <!--p th:text="${LoggedInUser.username}">fw</p>-->
+    <p th:text="${user.username}"></p>
+
     <p>Is logged In</p>
     <br>
     <a href="/makeApplication">Make an application</a>

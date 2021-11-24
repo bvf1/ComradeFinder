@@ -30,7 +30,6 @@ public class CompanyController {
 
     @RequestMapping(value="register/company", method= RequestMethod.GET)
     public String registerGET(Company company) {
-        log.info("what");
         return "registercompany";
     }
 
