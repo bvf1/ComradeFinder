@@ -7,8 +7,8 @@
 <body>
 <div>
     Make Ad
-    <form action="#" th:action="@{/makeAd}" th:object="${ad}", method="post">
-        <!--TODO: fix error: Property or field 'title' cannot be found on object of type Ad-->
+    <form action="#" th:action="@{/makeAd}" th:object="${ad}" method="post">
+        <!--TODO: fix error: Property or field 'title' cannot be found on null-->
         <div>
             <label for="title">Title: </label>
             <input type="text" name="title" id="title" th:value="*{title}"/>

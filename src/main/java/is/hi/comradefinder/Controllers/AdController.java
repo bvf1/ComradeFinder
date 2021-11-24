@@ -31,12 +31,12 @@ public class  AdController {
     }
 
     @RequestMapping(value="/makeAd", method = RequestMethod.GET)
-    public String makeAdGET(Ad ad, Model model, HttpSession session) {
-        Company company = (Company) session.getAttribute("LoggedInUser");
+    public String makeAdGET(Ad ad) {
+       // Company company = (Company) session.getAttribute("LoggedInUser");
 
-        log.info(String.valueOf(company));
+        //log.info(String.valueOf(company));
 
-        if (company != null) {
+      /*  if (company != null) {
             log.info("no is not null");
             log.info(company.toString());
 
@@ -45,8 +45,8 @@ public class  AdController {
 
         }
         log.info("company is null");
-        return "redirect:/";
-        // return "makeAd";
+        return "redirect:/";*/
+        return "makeAd";
 
     }
 
@@ -58,9 +58,9 @@ public class  AdController {
         }
         
 
-        if (adService.findById(ad.getId()) != null) {
+        /*if (adService.findById(ad.getId()) != null) {
             return "viewCompany";
-        }
+        }*/
         adService.save(ad);
         return "redirect:/";
     }

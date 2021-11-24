@@ -10,9 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class CompanyController {
@@ -42,13 +45,13 @@ public class CompanyController {
         return "redirect:/";
     }
 
-
-   /* @RequestMapping(value = "company", method = RequestMethod.GET)
-    public String ViewCompanyGET(Company company, Model model) {
+    @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
+    public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
+        model.addAttribute("companyId", companyId);
+        model.addAttribute("company", companyService.findByID(companyId));
+        log.info("whatthe actual f");
         return "viewCompany";
+
     }
 
-    //ViewCompanyFromName
-    //ViewCompanies
-*/
 }
