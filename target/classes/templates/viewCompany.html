@@ -17,5 +17,33 @@
 
 </div>
 
+<!--TODO: This broke in previous testing...-->
+<div th:if="${ads!=null and !ads.empty}">
+    <div th:switch="${ads}">
+        <div th:case="*">
+            <h2>Job Advertisements</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Ad Title</th>
+                    <th>Description</th>
+                    <th>Company</th>
+                    <!--TODO: Maybe we don't want tags here-->
+                    <th>Pay</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ad : ${ads}}">
+                    <td th:text="${ad.title}"></td>
+                    <td th:text="${ad.description}"></td>
+                    <td th:text="${ad.company.displayName}"></td>
+                    <td><!--TODO: Add payment information to Ad--></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

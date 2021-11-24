@@ -21,4 +21,10 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
     @Query(value = "SELECT ad FROM Ad ad WHERE ad.company.username = ?1")
     List<Ad> findAdsByCompany(String username);
 
+    List<Ad> findAdsByCompany_Username(String username);
+
+    Optional<Ad> findAdByCompany_Username(String username);
+
+
+
 }

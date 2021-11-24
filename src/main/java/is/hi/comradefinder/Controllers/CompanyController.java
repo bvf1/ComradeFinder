@@ -1,7 +1,9 @@
 package is.hi.comradefinder.Controllers;
 
 import is.hi.comradefinder.ComradeFinderApplication;
+import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.Company;
+import is.hi.comradefinder.Services.AdService;
 import is.hi.comradefinder.Services.CompanyService;
 import org.apache.coyote.Request;
 import org.slf4j.Logger;
@@ -16,16 +18,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class CompanyController {
 
     CompanyService companyService;
+    AdService adService;
     private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
 
     @Autowired
-    public CompanyController (CompanyService companyService) {
+    public CompanyController (CompanyService companyService, AdService adService) {
         this.companyService = companyService;
+        this.adService = adService;
     }
 
     @RequestMapping(value="register/company", method= RequestMethod.GET)
@@ -48,7 +53,19 @@ public class CompanyController {
     @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
         model.addAttribute("companyId", companyId);
-        model.addAttribute("company", companyService.findByID(companyId));
+        Company loggedInCompany = companyService.findByID(companyId);
+        log.info(loggedInCompany.toString());
+        log.info(loggedInCompany.getUsername());
+        model.addAttribute("company", loggedInCompany);
+        log.info(loggedInCompany.toString());
+        log.info(loggedInCompany.getUsername());
+        // Finds all ads that belong to this company
+        List<Ad> allAds = adService.findAdsByCompany(loggedInCompany.getUsername());
+        model.addAttribute("ads", allAds);
+        log.info(allAds.toString());
+        log.info(adService.findAdsByCompany(loggedInCompany.getUsername()).toString());
+        log.info("findall");
+        log.info(adService.findAll().toString());
         return "viewCompany";
 
     }
