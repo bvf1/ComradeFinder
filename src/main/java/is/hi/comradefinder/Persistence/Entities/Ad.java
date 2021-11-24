@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Ads")
 public class Ad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long ID;
     private String title;
     @ElementCollection(fetch = FetchType.LAZY)

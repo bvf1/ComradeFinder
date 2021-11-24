@@ -26,6 +26,7 @@
                     <th>Company</th>
                     <!--TODO: Fix company payment-->
                     <th>Pay</th>
+                    <th>Apply</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,9 @@
                     <td th:text="${ad.description}"></td>
                     <td th:text="${ad.company.displayName}"></td>
                     <td><!--TODO: Add payment information to Ad--></td>
+                    <td>
+                        <button value="apply" href="/makeApplication/${ad.id}">Apply</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
