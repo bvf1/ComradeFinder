@@ -34,7 +34,7 @@ public class ApplicationController {
         Long userId = (Long) model.getAttribute("user");
 
         User user = userService.findByID(userId);
-        Ad ad = adService.findById(adId).get();
+        Ad ad = adService.findByID(adId).get();
         Application application = new Application(user, ad);
 
         applicationService.save(application);
