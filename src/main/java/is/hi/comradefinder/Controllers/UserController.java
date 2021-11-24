@@ -2,7 +2,6 @@ package is.hi.comradefinder.Controllers;
 
 import is.hi.comradefinder.ComradeFinderApplication;
 import is.hi.comradefinder.Persistence.Entities.Ad;
-import is.hi.comradefinder.Persistence.Entities.Company;
 import is.hi.comradefinder.Persistence.Entities.User;
 import is.hi.comradefinder.Services.AdService;
 import is.hi.comradefinder.Services.UserService;
@@ -15,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
