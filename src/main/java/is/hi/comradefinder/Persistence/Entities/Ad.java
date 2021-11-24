@@ -11,6 +11,7 @@ public class Ad {
     private String title;
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> description;
+    private String priceRange;
     @ElementCollection(fetch= FetchType.LAZY)
     private List<String> extraQuestions;
     //@OneToOne(mappedBy="ad", cascade= CascadeType.ALL, fetch= FetchType.LAZY, orphanRemoval = true)
@@ -25,11 +26,14 @@ public class Ad {
 
     // Constructor chain
     public Ad() {}
+
+
     public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage) {
         // TODO: Implement a way for ads to fetch a unique ID.
         //this.id = fetchNewAdID();
         this.title = title;
         this.description = description;
+        this.priceRange = priceRange;
         this.extraQuestions = extraQuestions;
         this.company = company;
         this.linkToPDFImage = linkToPDFImage;
@@ -75,6 +79,10 @@ public class Ad {
     public void setDescription(List<String> description) {
         this.description = description;
     }
+
+    public String getPriceRange() { return priceRange; }
+
+    public void setPriceRange(String priceRange) { this.priceRange = priceRange; }
 
     public List<String> getExtraQuestions() {
         return extraQuestions;
@@ -122,6 +130,7 @@ public class Ad {
                 "id=" + ID +
                 ", title='" + title + '\'' +
                 ", description=" + description +
+                ", priceRange=" + priceRange +
                 ", extraQuestions=" + extraQuestions +
                 ", company=" + company +
                 ", linkToPDFImage='" + linkToPDFImage + '\'' +
