@@ -2,16 +2,84 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Make Ad</title>
+    <title>Make Application</title>
 </head>
 <body>
 Make Application
-
+<form action="#" th:action="@{/makeApplication}" method="post">
 <div>
-
-    <!--form action="#" th:action="@{/makeApplication" method="post">
-    </form-->
+    <h1>Job Application</h1>
+    <h3>Please complete the form below to apply for a position with us</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label>
+                        <span>First name</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+                <td>
+                    <label>
+                        <span>Last name</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Email</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Position you are applying for</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Phone</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+                <td>
+                    <label>
+                        <span>Last company you worked for</span>
+                    </label>
+                    <br>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        <span>Reference / Comments / Questions</span>
+                    </label>
+                    <br>
+                    <textarea rows="7" cols="40"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Send Application">
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+</form>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 package is.hi.comradefinder.Controllers;
 
 import is.hi.comradefinder.ComradeFinderApplication;
-import is.hi.comradefinder.Persistence.Entities.Company;
 import is.hi.comradefinder.Persistence.Entities.User;
 import is.hi.comradefinder.Services.UserService;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -54,17 +52,5 @@ public class UserController {
         model.addAttribute("user", userService.findByID(userId));
         return "viewUser";
 
-    }
-
-// should be in application controller
-    @RequestMapping(value="/makeApplication", method = RequestMethod.GET)
-    public String makeApplication() {
-
-        return "makeApplication";
-    }
-    @RequestMapping(value="/makeApplication", method = RequestMethod.POST)
-    public String makeApplicationPOST() {
-
-        return "makeApplication";
     }
 }

@@ -23,5 +23,35 @@ public class Application {
         this.extraInfo = extraInfo;
     }
 
-    // TODO: Getters and setters
+    public long getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(long applicationID) {
+        this.applicationID = applicationID;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Ad getAd() {
+        return ad;
+    }
+
+    public void setAd(Ad ad) {
+        this.ad = ad;
+    }
+
+    public List<String> getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(List<String> extraInfo) {
+        this.extraInfo = extraInfo;
+    }
 }
