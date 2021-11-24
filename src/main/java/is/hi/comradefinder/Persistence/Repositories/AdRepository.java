@@ -13,12 +13,18 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
     void delete(Ad Ad);
 
     List<Ad> findAll();
-    Optional<Ad> findById(Long Id);
+    Optional<Ad> findByID(Long id);
 
     List<Ad> findByTitle(String Title);
     List<Ad> findByTagsContaining(String Tag);
 
     @Query(value = "SELECT ad FROM Ad ad WHERE ad.company.username = ?1")
     List<Ad> findAdsByCompany(String username);
+
+    List<Ad> findAdsByCompany_Username(String username);
+
+    Optional<Ad> findAdByCompany_Username(String username);
+
+
 
 }

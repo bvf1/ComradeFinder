@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
@@ -32,36 +33,41 @@ public class  AdController {
 
     @RequestMapping(value="/makeAd", method = RequestMethod.GET)
     public String makeAdGET(Ad ad) {
-       // Company company = (Company) session.getAttribute("LoggedInUser");
-
-        //log.info(String.valueOf(company));
-
-      /*  if (company != null) {
-            log.info("no is not null");
-            log.info(company.toString());
-
-            return "makeAd";
-
-
-        }
-        log.info("company is null");
-        return "redirect:/";*/
         return "makeAd";
-
     }
 
 
     @RequestMapping(value="/makeAd", method = RequestMethod.POST)
-    public String makeAd(Ad ad, BindingResult result, Model model) {
+    public String makeAd(Ad ad, BindingResult result, Model model, HttpSession session) {
         if (result.hasErrors()) {
             return "makeAd";
         }
-        
 
-        /*if (adService.findById(ad.getId()) != null) {
-            return "viewCompany";
-        }*/
-        adService.save(ad);
+
+        Company company = (Company) session.getAttribute("LoggedInUser");
+        ad.setCompany(company);
+        log.info("ad");
+        log.info(ad.toString());
+
+
+        if (ad != null && company != null ) {
+            log.info("1");
+           // log.info(company.getAdvertisements().toString());
+         //   List<Ad> ads = company.getAdvertisements();
+         //   session.setAttribute("ads",ads);
+            log.info("2");
+
+           // adService.save(ad);
+            log.info("3");
+          //  log.info(ad.toString());
+           // log.info(ads.toString());
+
+           // ads.add(ad);
+            adService.save(ad);
+            log.info("4");
+            model.addAttribute("LoggedInUser", company);
+            return "redirect:/company/" + company.getID();
+        }
         return "redirect:/";
     }
 /*

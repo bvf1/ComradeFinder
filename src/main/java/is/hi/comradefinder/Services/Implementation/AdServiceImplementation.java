@@ -37,7 +37,7 @@ public class AdServiceImplementation implements AdService {
     }
 
     @Override
-    public Optional<Ad> findById(Long id) { return repository.findById(id); }
+    public Optional<Ad> findByID(Long id) { return repository.findById(id); }
 
 
     @Override
@@ -47,6 +47,6 @@ public class AdServiceImplementation implements AdService {
     public List<Ad> findByTagsContaining(String tag) { return repository.findByTagsContaining(tag); }
 
     @Override
-    public List<Ad> findAdsByCompany(String username) { return repository.findAdsByCompany(username); }
+    public List<Ad> findAdsByCompany(String username) { return repository.findAdsByCompany_Username(username); }
 
 }

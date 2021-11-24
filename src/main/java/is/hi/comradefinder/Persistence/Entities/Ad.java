@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Ads")
 public class Ad {
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long ID;
     private String title;
     @ElementCollection(fetch = FetchType.LAZY)
     private List<String> description;
@@ -51,16 +53,12 @@ public class Ad {
     }
 
     //TODO: Getters and setters
-    public void setId(Long id) {
-        this.id = id;
+    public long getID() {
+        return ID;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public String getTitle() {
@@ -119,4 +117,17 @@ public class Ad {
         this.tags = tags;
     }
 
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + ID +
+                ", title='" + title + '\'' +
+                ", description=" + description +
+                ", extraQuestions=" + extraQuestions +
+                ", company=" + company +
+                ", linkToPDFImage='" + linkToPDFImage + '\'' +
+                ", applications=" + applications +
+                ", tags=" + tags +
+                '}';
+    }
 }
