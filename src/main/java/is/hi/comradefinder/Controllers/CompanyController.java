@@ -30,6 +30,7 @@ public class CompanyController {
 
     @RequestMapping(value="register/company", method= RequestMethod.GET)
     public String registerGET(Company company) {
+        log.info("what");
         return "registercompany";
     }
 
@@ -49,7 +50,6 @@ public class CompanyController {
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
         model.addAttribute("companyId", companyId);
         model.addAttribute("company", companyService.findByID(companyId));
-        log.info("whatthe actual f");
         return "viewCompany";
 
     }
