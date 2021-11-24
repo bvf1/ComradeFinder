@@ -13,7 +13,7 @@ public interface AdRepository extends JpaRepository<Ad, Long> {
     void delete(Ad Ad);
 
     List<Ad> findAll();
-    Optional<Ad> findById(Long Id);
+    Optional<Ad> findByID(Long id);
 
     List<Ad> findByTitle(String Title);
     List<Ad> findByTagsContaining(String Tag);

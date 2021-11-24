@@ -37,7 +37,7 @@ public class AdServiceImplementation implements AdService {
     }
 
     @Override
-    public Optional<Ad> findById(Long id) { return repository.findById(id); }
+    public Optional<Ad> findByID(Long id) { return repository.findById(id); }
 
 
     @Override
