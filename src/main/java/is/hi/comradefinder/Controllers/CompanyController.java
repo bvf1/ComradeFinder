@@ -47,38 +47,11 @@ public class CompanyController {
 
     @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
-       // companyId = Long.valueOf(1);
-        //company = (Company) session.getAttribute("LoggedInUser");
-        log.info(String.valueOf(companyService.findByID(companyId)));
-        log.info(String.valueOf(companyId));
-        log.info(" actual f");
         model.addAttribute("companyId", companyId);
         model.addAttribute("company", companyService.findByID(companyId));
-      //  log.info(String.valueOf(companyService.findByID(Long.valueOf(companyId))));
-      //  model.addAttribute("company", companyService.findByID(companyId));
-      //  model.addAttribute("companyId", companyId);
-       // model.addAttribute("company", companyService.findByID(Long.valueOf(companyId)));
         log.info("whatthe actual f");
         return "viewCompany";
 
-        // Company company = companyService.findByID(id);
-      /*  if (company != null) {
-            log.info("no is not null");
-            log.info(company.toString());
-
-            return "viewCompany";
-        }
-        return "";
-        */
     }
 
-
-   /* @RequestMapping(value = "company", method = RequestMethod.GET)
-    public String ViewCompanyGET(Company company, Model model) {
-        return "viewCompany";
-    }
-
-    //ViewCompanyFromName
-    //ViewCompanies
-*/
 }
