@@ -54,18 +54,10 @@ public class CompanyController {
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
         model.addAttribute("companyId", companyId);
         Company loggedInCompany = companyService.findByID(companyId);
-        log.info(loggedInCompany.toString());
-        log.info(loggedInCompany.getUsername());
         model.addAttribute("company", loggedInCompany);
-        log.info(loggedInCompany.toString());
-        log.info(loggedInCompany.getUsername());
         // Finds all ads that belong to this company
         List<Ad> allAds = adService.findAdsByCompany(loggedInCompany.getUsername());
         model.addAttribute("ads", allAds);
-        log.info(allAds.toString());
-        log.info(adService.findAdsByCompany(loggedInCompany.getUsername()).toString());
-        log.info("findall");
-        log.info(adService.findAll().toString());
         return "viewCompany";
 
     }
