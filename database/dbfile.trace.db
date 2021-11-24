@@ -1,6 +1,0 @@
-2021-11-24 17:53:23 jdbc[14]: exception
-org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AD: ""COMPANY_ID"" BIGINT)"; SQL statement:
-INSERT INTO "PUBLIC"."AD"("ID","LINK_TOPDFIMAGE","TITLE","COMPANY_ID")VALUES(?,?,?,?) [22018-200]
-2021-11-24 17:53:23 jdbc[14]: exception
-org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AD: ""COMPANY_ID"" BIGINT)"; SQL statement:
-INSERT INTO "PUBLIC"."AD"("ID","LINK_TOPDFIMAGE","TITLE","COMPANY_ID")VALUES(?,?,?,?) [22018-200]

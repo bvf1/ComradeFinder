@@ -63,7 +63,7 @@ public class  AdController {
            // log.info(ads.toString());
 
            // ads.add(ad);
-            //adService.save(ad);
+            adService.save(ad);
             log.info("4");
             model.addAttribute("LoggedInUser", company);
             return "redirect:/company/" + company.getID();
