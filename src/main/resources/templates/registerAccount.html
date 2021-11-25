@@ -6,11 +6,11 @@
 <body>
     <div>
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username" th:field="*{username}"/>
+        <input type="text" name="username" id="username" required th:field="*{username}"/>
     </div>
     <div>
         <label for="password">Password: </label>
-        <input type="text" name="password" id="password" th:value="*{password}"/>
+        <input type="text" name="password" id="password" required th:value="*{password}"/>
     </div>
     <div>
         <label for="phone">Phone: </label>
@@ -18,7 +18,7 @@
     </div>
     <div>
         <label for="email">Email: </label>
-        <input type="text" name="Email" id="Email" th:value="*{Email}"/>
+        <input type="email" name="Email" id="Email" required th:value="*{Email}"/>
     </div>
     <div>
         <label for="displayName">DisplayName: </label>
