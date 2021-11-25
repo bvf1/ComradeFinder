@@ -6,7 +6,7 @@
 </head>
 <body>
 Make Application
-<form action="#" th:action="@{/makeApplication}" th:object="${application}", method="post">
+<form action="#" th:action="@{/makeApplication/?id={id}(id = ${ad.ID})}" th:object="${application}", method="post">
 <div>
     <h1>Job Application</h1>
     <h3>Please complete the form below to apply for a position with us</h3>
@@ -15,19 +15,19 @@ Make Application
             <tr>
                 <td>
                     <label for="full_name">
-                        <span>First name</span>
+                        <span>Full name</span>
                     </label>
                     <br>
-                    <input type="text" name="full_name" id="full_name" th:value="*{}">
+                    <input type="text" name="full_name" id="full_name" th:value="*{full_name}">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>
+                    <label for="email">
                         <span>Email</span>
                     </label>
                     <br>
-                    <input type="text">
+                    <input type="text" name="email" id="email" th:value="*{email}">
                 </td>
             </tr>
             <tr>

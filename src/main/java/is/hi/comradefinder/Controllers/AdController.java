@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -42,40 +43,17 @@ public class  AdController {
         if (result.hasErrors()) {
             return "makeAd";
         }
-
-
         Company company = (Company) session.getAttribute("LoggedInUser");
         ad.setCompany(company);
-        log.info("ad");
-        log.info(ad.toString());
 
 
         if (ad != null && company != null ) {
-            log.info("1");
-           // log.info(company.getAdvertisements().toString());
-         //   List<Ad> ads = company.getAdvertisements();
-         //   session.setAttribute("ads",ads);
-            log.info("2");
-
-           // adService.save(ad);
-            log.info("3");
-          //  log.info(ad.toString());
-           // log.info(ads.toString());
-
-           // ads.add(ad);
             adService.save(ad);
-            log.info("4");
             model.addAttribute("LoggedInUser", company);
             return "redirect:/company/" + company.getID();
         }
         return "redirect:/";
     }
-/*
-    @RequestMapping(path= "/CreateAd/{companyId}", method=RequestMethod.GET)
-    public String Ad(@PathVariable String companyId, /*Model model*/ /*) {
-       // Company company = companyService.findCompany(companyId);
-        return "CreateAd";
-    }
-    */
+
 
 }

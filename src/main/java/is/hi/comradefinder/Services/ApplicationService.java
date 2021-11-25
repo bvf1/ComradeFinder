@@ -10,7 +10,7 @@ public interface ApplicationService {
     void delete(Application application);
 
     List<Application> findAll();
-    Optional<Application> findById(Long id);
+    Application findByID(Long id);
 
     List<Application> findByUser(String username);
     List<Application> findByAd(String ad);

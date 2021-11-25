@@ -1,5 +1,6 @@
 package is.hi.comradefinder.Services.Implementation;
 
+import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.Application;
 import is.hi.comradefinder.Persistence.Repositories.ApplicationRepository;
 import is.hi.comradefinder.Services.ApplicationService;
@@ -33,9 +34,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public Optional<Application> findById(Long id) {
-        return applicationRepository.findById(id);
-    }
+    public Application findByID(Long id) {return applicationRepository.findByID(id);}
 
 
     @Override

@@ -10,7 +10,7 @@ public interface AdService {
     void delete(Ad ad);
 
     List<Ad> findAll();
-    Optional<Ad> findByID(Long id);
+    Ad findByID(Long id);
 
     List<Ad> findByTitle(String title);
     List<Ad> findByTagsContaining(String tag);

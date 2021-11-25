@@ -36,7 +36,9 @@
                     <td th:text="${ad.company.username}"></td>
                     <td th:text="${ad.priceRange}"></td>
                     <td>
-                        <button value="apply" href="/makeApplication/${ad.id}">Apply</button>
+                        <form action="#" th:action="@{/makeApplication/(id=${ad.ID})}", method="post">
+                            <input type="submit" value="Apply">
+                        </form>
                     </td>
                 </tr>
                 </tbody>
@@ -45,6 +47,5 @@
     </div>
 </div>
 <div th:insert="goHome"></div>
-
 </body>
 </html>

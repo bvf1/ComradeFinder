@@ -1,5 +1,6 @@
 package is.hi.comradefinder.Persistence.Repositories;
 
+import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.Application;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,7 +13,8 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
     void delete(Application application);
 
     List<Application> findAll();
-    Optional<Application> findById(Long id);
+    Application findByID(Long id);
+
 
     List<Application> findByUser(String username);
     List<Application> findByAd(String ad);

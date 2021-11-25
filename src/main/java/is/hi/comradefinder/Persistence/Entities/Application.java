@@ -1,14 +1,12 @@
 package is.hi.comradefinder.Persistence.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Application {
     @Id
-    private long applicationID;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long ID;
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -20,12 +18,13 @@ public class Application {
         this.ad = ad;
     }
 
-    public long getApplicationID() {
-        return applicationID;
+
+    public Long getID() {
+        return ID;
     }
 
-    public void setApplicationID(long applicationID) {
-        this.applicationID = applicationID;
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
     public User getUser() {
