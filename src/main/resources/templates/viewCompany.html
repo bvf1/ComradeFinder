@@ -17,6 +17,7 @@
 
 </div>
 
+
 <!--TODO: This broke in previous testing...-->
 <div th:if="${ads!=null and !ads.empty}">
     <div th:switch="${ads}">
@@ -44,6 +45,6 @@
         </div>
     </div>
 </div>
-
+<div th:insert="goHome"></div>
 </body>
 </html>
