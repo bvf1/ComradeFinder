@@ -1,5 +1,0 @@
-2021-11-25 05:16:26 jdbc[14]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM APPLICATION
-SELECT[*] * FROM AD"; SQL statement:
-SELECT * FROM APPLICATION
-SELECT * FROM AD [42000-200]
