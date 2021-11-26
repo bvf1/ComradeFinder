@@ -26,6 +26,7 @@
                     <th>Company</th>
                     <th>Pay</th>
                     <th>Apply</th>
+                    <th>Unapply</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,6 +43,16 @@
                     <td th:unless="${appServ.findApplicationByUserAndAd(user, ad).isPresent()}">
                         <form action="#" th:action="@{/makeApplication/(id=${ad.ID})}", method="post">
                             <input type="submit" value="Apply">
+                        </form>
+                    </td>
+                    <td th:if="${appServ.findApplicationByUserAndAd(user, ad).isPresent()}">
+                        <form action="#" th:action="@{/delete/{id}(id=${ad.ID})}", method="post">
+                            <input type="submit" value="Unapply">
+                        </form>
+                    </td>
+                    <td th:unless="${appServ.findApplicationByUserAndAd(user, ad).isPresent()}">
+                        <form action="#" th:action="@{/delete/{id}(id=${ad.ID})}", method="post">
+                            <input type="submit" value="Unapply" disabled>
                         </form>
                     </td>
                 </tr>
