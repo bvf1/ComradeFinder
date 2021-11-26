@@ -7,10 +7,10 @@
 <body>
 <form action="#" th:action="@{/register/user}" th:object="${user}", method="post">
     <div th:insert="registerAccount"></div>
-    <div>
+    <!--div>
         <label for="PDFcv">PDF with CV: </label>
         <input type="text" name="PDFcv" id="PDFcv" th:value="*{PDFcv}"/>
-    </div>
+    </div-->
     <div>
         <input type="submit" value="Register"/>
         <input type="button" value="Cancel" onClick="window.location.href='../../';">

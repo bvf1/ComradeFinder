@@ -12,10 +12,8 @@ public abstract class Account {
     protected String password;
     protected String phone;
     protected String email;
-    protected String displayName; // what is displayName
-    @ElementCollection(fetch= FetchType.LAZY)
-    protected List<String> description;
-    // Description might want to be other type than List<String>
+    protected String displayName;
+    protected String description;
 
     // Abstract class does not initalize
     // No constructor needed.
@@ -71,11 +69,11 @@ public abstract class Account {
         this.displayName = displayName;
     }
 
-    public List<String> getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(List<String> description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

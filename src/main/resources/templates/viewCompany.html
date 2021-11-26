@@ -29,8 +29,8 @@
                     <th>Ad Title</th>
                     <th>Description</th>
                     <th>Company</th>
-                    <!--TODO: Maybe we don't want tags here-->
                     <th>Pay</th>
+                    <th>View applicants</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,11 @@
                     <td th:text="${ad.description}"></td>
                     <td th:text="${ad.company.username}"></td>
                     <td th:text="${ad.priceRange}"></td>
+                    <td>
+                        <form action="#" th:action="@{/viewApplicants/(adID=${ad.ID})}", method="post">
+                            <input type="submit" value="See applicants">
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>

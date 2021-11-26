@@ -5,7 +5,7 @@
     <title>Company</title>
 </head>
 <body>
-<div action="#" th:action="@{/company/{companyId}(companyId = ${company.ID})}" th:object="${company}" method="post">
+<div>
 
     <!--p th:text="${LoggedInUser.username}"></p-->
     <p th:text="${company.username}"></p>
@@ -16,32 +16,37 @@
 
 
 <!--TODO: This broke in previous testing...-->
-<div th:if="${ads!=null and !ads.empty}">
-    <div th:switch="${ads}">
+<div th:if="${users!=null and !users.empty}">
+    <div th:switch="${users}">
         <div th:case="*">
             <h2>Job Advertisements</h2>
             <table>
                 <thead>
                 <tr>
-                    <th>Ad Title</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
                     <th>Description</th>
-                    <th>Company</th>
-                    <!--TODO: Maybe we don't want tags here-->
-                    <th>Pay</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="ad : ${ads}">
-                    <td th:text="${ad.title}"></td>
-                    <td th:text="${ad.description}"></td>
-                    <td th:text="${ad.company.username}"></td>
-                    <td th:text="${ad.priceRange}"></td>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.getDisplayName()}"></td>>
+                    <td th:text="${user.getEmail()}"></td>>
+                    <td th:text="${user.getPhone()}"></td>>
+                    <td th:text="${user.getDescription()}"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<td>
+    <!--TODO: Get the return button to work-->
+    <form action="#" th:action="@{/company/(companyId=${company.getID()})}", method="get">
+        <input type="submit" value="Return home">
+    </form>
+</td>
 <div th:insert="goHome"></div>
 </body>
 </html>

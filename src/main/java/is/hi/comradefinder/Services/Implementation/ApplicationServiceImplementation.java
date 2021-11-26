@@ -44,7 +44,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public List<Application> findByAd(String ad) { return applicationRepository.findByAd(ad); }
+    public List<Application> findByAd(Ad ad) { return applicationRepository.findByAd(ad); }
 
     @Override
     public Optional<Application> findApplicationByUserAndAd(User user, Ad ad) { return applicationRepository.findApplicationByUserAndAd(user, ad); };

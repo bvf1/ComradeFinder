@@ -18,7 +18,7 @@ public class Company extends Account {
     }
 
     public Company(String username, String password, String phone,
-                   String email, String displayName, List<String> description,
+                   String email, String displayName, String description,
                    int SSN, String street, String companyPhone) {
         this.username = username;
         this.password = password;
