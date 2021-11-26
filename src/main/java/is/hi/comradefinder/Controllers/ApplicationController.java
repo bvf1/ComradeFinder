@@ -64,8 +64,7 @@ public class ApplicationController {
     }
 
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String deleteApplication(@PathVariable("id") long id, Model model, HttpSession session){
-        List<Application> applications = applicationService.findAll();
+    public String deleteApplication(@PathVariable("id") long id, HttpSession session){
         User user = (User) session.getAttribute("LoggedInUser");
 
         Ad ad = adService.findByID(id);
