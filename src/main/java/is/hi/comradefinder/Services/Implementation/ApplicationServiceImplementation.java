@@ -2,6 +2,7 @@ package is.hi.comradefinder.Services.Implementation;
 
 import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.Application;
+import is.hi.comradefinder.Persistence.Entities.User;
 import is.hi.comradefinder.Persistence.Repositories.ApplicationRepository;
 import is.hi.comradefinder.Services.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     @Override
     public List<Application> findByAd(String ad) { return applicationRepository.findByAd(ad); }
+
+    @Override
+    public Optional<Application> findApplicationByUserAndAd(User user, Ad ad) { return applicationRepository.findApplicationByUserAndAd(user, ad); };
 }

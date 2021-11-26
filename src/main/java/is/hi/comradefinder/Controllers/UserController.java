@@ -4,6 +4,7 @@ import is.hi.comradefinder.ComradeFinderApplication;
 import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.User;
 import is.hi.comradefinder.Services.AdService;
+import is.hi.comradefinder.Services.ApplicationService;
 import is.hi.comradefinder.Services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,14 +23,16 @@ import java.util.List;
 public class UserController {
     UserService userService;
     AdService adService;
+    ApplicationService applicationService;
 
     private static final Logger log =  LoggerFactory.getLogger(ComradeFinderApplication.class);
 
 
     @Autowired
-    public UserController (UserService userService, AdService adService) {
+    public UserController (UserService userService, AdService adService, ApplicationService applicationService) {
         this.userService = userService;
         this.adService = adService;
+        this.applicationService = applicationService;
     }
 
     @RequestMapping(value="register/user", method= RequestMethod.GET)
@@ -58,6 +61,8 @@ public class UserController {
         // Send ads for HTML to use
         List<Ad> allAds = adService.findAll();
         model.addAttribute("ads", allAds);
+        // PLZ WORK
+        model.addAttribute("appServ", applicationService);
         return "viewUser";
 
     }

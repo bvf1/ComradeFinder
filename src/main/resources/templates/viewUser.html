@@ -24,7 +24,6 @@
                     <th>Ad Title</th>
                     <th>Description</th>
                     <th>Company</th>
-                    <!--TODO: Fix company payment-->
                     <th>Pay</th>
                     <th>Apply</th>
                 </tr>
@@ -35,7 +34,12 @@
                     <td th:text="${ad.description}"></td>
                     <td th:text="${ad.company.username}"></td>
                     <td th:text="${ad.priceRange}"></td>
-                    <td>
+                    <td th:if="${appServ.findApplicationByUserAndAd(user, ad).isPresent()}">
+                        <form action="#" th:action="@{/makeApplication/(id=${ad.ID})}", method="post">
+                            <input type="submit" value="Applied" disabled>
+                        </form>
+                    </td>
+                    <td th:unless="${appServ.findApplicationByUserAndAd(user, ad).isPresent()}">
                         <form action="#" th:action="@{/makeApplication/(id=${ad.ID})}", method="post">
                             <input type="submit" value="Apply">
                         </form>

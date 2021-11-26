@@ -1,6 +1,8 @@
 package is.hi.comradefinder.Services;
 
+import is.hi.comradefinder.Persistence.Entities.Ad;
 import is.hi.comradefinder.Persistence.Entities.Application;
+import is.hi.comradefinder.Persistence.Entities.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,4 +16,6 @@ public interface ApplicationService {
 
     List<Application> findByUser(String username);
     List<Application> findByAd(String ad);
+
+    Optional<Application> findApplicationByUserAndAd(User user, Ad ad);
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Company</title>
+</head>
+<body>
+<div action="#" th:action="@{/company/{companyId}(companyId = ${company.ID})}" th:object="${company}" method="post">
+
+    <!--p th:text="${LoggedInUser.username}"></p-->
+    <p th:text="${company.username}"></p>
+
+    <p>Is logged In:</p>
+
+</div>
+
+
+<!--TODO: This broke in previous testing...-->
+<div th:if="${ads!=null and !ads.empty}">
+    <div th:switch="${ads}">
+        <div th:case="*">
+            <h2>Job Advertisements</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Ad Title</th>
+                    <th>Description</th>
+                    <th>Company</th>
+                    <!--TODO: Maybe we don't want tags here-->
+                    <th>Pay</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ad : ${ads}">
+                    <td th:text="${ad.title}"></td>
+                    <td th:text="${ad.description}"></td>
+                    <td th:text="${ad.company.username}"></td>
+                    <td th:text="${ad.priceRange}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:insert="goHome"></div>
+</body>
+</html>
