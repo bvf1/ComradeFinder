@@ -16,8 +16,7 @@ public interface ApplicationRepository extends JpaRepository<Application, Long> 
     List<Application> findAll();
     Application findByID(Long id);
 
-    // TODO: Input parameters are not okie dokie
-    List<Application> findByUser(String username);
+    List<Application> findByUser(User user);
     List<Application> findByAd(Ad ad);
 
     Optional<Application> findApplicationByUserAndAd(User user, Ad ad);

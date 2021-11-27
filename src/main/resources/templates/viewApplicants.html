@@ -15,7 +15,6 @@
 </div>
 
 
-<!--TODO: This broke in previous testing...-->
 <div th:if="${users!=null and !users.empty}">
     <div th:switch="${users}">
         <div th:case="*">
@@ -42,8 +41,7 @@
     </div>
 </div>
 <td>
-    <!--TODO: Get the return button to work-->
-    <form action="#" th:action="@{/company/(companyId=${company.getID()})}", method="get">
+    <form action="#" th:action="@{/company/{companyId}(companyId=${company.getID()})}", method="get">
         <input type="submit" value="Return home">
     </form>
 </td>

@@ -29,8 +29,6 @@ public class Ad {
 
 
     public Ad(String title, List<String> description, List<String> extraQuestions, Company company, String linkToPDFImage) {
-        // TODO: Implement a way for ads to fetch a unique ID.
-        //this.id = fetchNewAdID();
         this.title = title;
         this.description = description;
         this.priceRange = priceRange;
@@ -39,7 +37,7 @@ public class Ad {
         this.linkToPDFImage = linkToPDFImage;
     }
 
-
+    // GETTER ANS SETTERS
 
     public void addTag(String tag) {
         this.tags.add(tag);
@@ -55,7 +53,6 @@ public class Ad {
         this.tags.removeAll(tags);
     }
 
-    //TODO: Getters and setters
     public long getID() {
         return ID;
     }

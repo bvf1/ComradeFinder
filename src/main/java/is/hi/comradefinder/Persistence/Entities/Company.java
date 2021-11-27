@@ -31,7 +31,7 @@ public class Company extends Account {
         this.companyPhone = companyPhone;
     }
 
-    // TODO: Getters and setters
+    // GETTERS AND SETTERS
 
     public int getSSN() {
         return SSN;

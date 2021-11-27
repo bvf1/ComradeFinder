@@ -14,7 +14,7 @@ public interface ApplicationService {
     List<Application> findAll();
     Application findByID(Long id);
 
-    List<Application> findByUser(String username);
+    List<Application> findByUser(User user);
     List<Application> findByAd(Ad ad);
 
     Optional<Application> findApplicationByUserAndAd(User user, Ad ad);

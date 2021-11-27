@@ -17,9 +17,6 @@ public abstract class Account {
 
     // Abstract class does not initalize
     // No constructor needed.
-    //
-    // Methods that are common for User and Company should go here:
-    // TODO: Getter and setter methods
 
     public long getID() {
         return ID;

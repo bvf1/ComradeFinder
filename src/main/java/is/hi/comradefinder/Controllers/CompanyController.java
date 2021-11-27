@@ -61,17 +61,8 @@ public class CompanyController {
 
     @RequestMapping(value="/company/{companyId}", method=RequestMethod.GET)
     public String viewCompanyGET(@PathVariable Long companyId, Model model, Company company, HttpSession session) {
-        return viewCompanyREAL(companyId, model, company, session);
-    }
-
-    @RequestMapping(value="/company", method=RequestMethod.GET)
-    public String viewCompanyGET2(@RequestParam(value="companyId") Long companyId, Model model, Company company, HttpSession session) {
-        return viewCompanyREAL(companyId, model, company, session);
-    }
-
-    // I couldn't use the formatting of the original viewCompanyGET
-    // so I created 2 that map to the same code.
-    public String viewCompanyREAL(Long companyId, Model model, Company company, HttpSession session) {
+        log.info("LoggedInUser");
+        log.info(session.getAttribute("LoggedInUser").toString());
         model.addAttribute("companyId", companyId);
         Company loggedInCompany = companyService.findByID(companyId);
         model.addAttribute("company", loggedInCompany);
@@ -82,7 +73,14 @@ public class CompanyController {
     }
 
     @RequestMapping(value="/viewApplicants", method=RequestMethod.POST)
-    public String viewApplicantsPOST(@RequestParam(value="adID") Long adID, Model model, Company company, HttpSession session) {
+    public String viewApplicantsPOST(@RequestParam(value="adID") Long adID, Model model, HttpSession session) {
+        log.info("LoggedInUser");
+        log.info(session.getAttribute("LoggedInUser").toString());
+        Company loggedInCompany = (Company) session.getAttribute("LoggedInUser");
+        Long companyId = loggedInCompany.getID();
+        model.addAttribute("companyId", companyId);
+        model.addAttribute("company", loggedInCompany);
+
         List<Application> applications = applicationService.findByAd(adService.findByID(adID));
         List<User> users = new ArrayList<User>();
         for (Application a : applications) {

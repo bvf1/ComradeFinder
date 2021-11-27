@@ -39,8 +39,8 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
 
     @Override
-    public List<Application> findByUser(String username) {
-        return applicationRepository.findByUser(username);
+    public List<Application> findByUser(User user) {
+        return applicationRepository.findByUser(user);
     }
 
     @Override
