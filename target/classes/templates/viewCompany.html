@@ -31,6 +31,7 @@
                     <th>Company</th>
                     <th>Pay</th>
                     <th>View applicants</th>
+                    <th>Delete advertisement</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,6 +43,11 @@
                     <td>
                         <form action="#" th:action="@{/viewApplicants/(adID=${ad.ID})}", method="post">
                             <input type="submit" value="See applicants">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="#" th:action="@{/makeAd/delete/{id}(id=${ad.ID})}", method="post">
+                            <input type="submit" value="Delete Ad">
                         </form>
                     </td>
                 </tr>
