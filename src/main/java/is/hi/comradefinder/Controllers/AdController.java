@@ -55,5 +55,18 @@ public class  AdController {
         return "redirect:/";
     }
 
+    @RequestMapping(value="/makeAd/delete/{id}", method = RequestMethod.POST)
+    public String makeAdDELETE(@PathVariable("id") long id, Model model, HttpSession session) {
+        Company company = (Company) session.getAttribute("LoggedInUser");
+        Ad ad = adService.findByID(id);
+
+        if (ad != null && company != null ) {
+            adService.delete(ad);
+            model.addAttribute("LoggedInUser", company);
+            return "redirect:/company/" + company.getID();
+        }
+        return "redirect:/";
+    }
+
 
 }

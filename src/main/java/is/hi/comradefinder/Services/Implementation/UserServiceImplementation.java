@@ -1,6 +1,8 @@
 package is.hi.comradefinder.Services.Implementation;
 
+import is.hi.comradefinder.Persistence.Entities.Application;
 import is.hi.comradefinder.Persistence.Entities.User;
+import is.hi.comradefinder.Persistence.Repositories.ApplicationRepository;
 import is.hi.comradefinder.Persistence.Repositories.UserRepository;
 import is.hi.comradefinder.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,12 @@ import java.util.List;
 public class UserServiceImplementation implements UserService{
 
     private UserRepository repository;
+    private ApplicationRepository appRepository;
 
     @Autowired
-    public UserServiceImplementation(UserRepository repository){
+    public UserServiceImplementation(UserRepository repository, ApplicationRepository appRepository){
         this.repository = repository;
+        this.appRepository = appRepository;
     }
 
 
@@ -28,6 +32,12 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public void delete(User user) {
+        List<Application> apps = appRepository.findAll();
+        for (Application app : apps) {
+            if (app.getUser().getID() == user.getID()) {
+                appRepository.delete(app);
+            }
+        }
         repository.delete(user);
     }
 
