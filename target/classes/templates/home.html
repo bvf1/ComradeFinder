@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Company</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .register {
+        margin-left: 20px;
+    }
+    a {
+        text-decoration: none;
+    }
+    </style>
 </head>
 <body>
-
-Home Page
-<br>
+<div th:insert="header"></div>
 <div th:insert="login"></div>
 <br>
 <!--a th:href="@{/login}">Log In</a></td-->
-<div>
-    <a th:href="@{/register/company}">Register Company</a>
+
+<div class="register">
+    Don't have an account?
+    <br>
+    <a th:href="@{/register/company}">Register Company </a> |
     <a th:href="@{/register/user}">Register User</a>
 </div>
 </body>
